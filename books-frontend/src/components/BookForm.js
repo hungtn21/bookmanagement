@@ -12,7 +12,6 @@ export default function BookForm({ onCreate }) {
         const payload = {
             title: title.trim(),
             author: author.trim(),
-            // nếu backend dùng trường price (Double), gửi number; nếu không dùng, backend sẽ ignore
             price: price === '' ? null : Number(price)
         };
 

@@ -1,8 +1,7 @@
 import React from 'react';
 
 export default function BookList({ books, onEdit, onDelete }) {
-    if (!books || books.length === 0) return <p>No books found.</p>;
-
+    if (!books || books.length === 0) return <p>No books found.</p>
     return (
         <table className="table table-striped">
             <thead>

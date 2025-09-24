@@ -17,13 +17,11 @@ public class BookRestController {
     @Autowired
     private BookService bookService;
 
-    // Lấy tất cả sách
     @GetMapping
     public List<Book> getAllBooks() {
         return bookService.getAllBooks();
     }
 
-    // Lấy chi tiết 1 sách
     @GetMapping("/{id}")
     public ResponseEntity<Book> getBookById(@PathVariable Long id) {
         return bookService.getBookById(id)
@@ -31,14 +29,12 @@ public class BookRestController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    // Thêm sách mới
     @PostMapping
     public ResponseEntity<Book> createBook(@RequestBody Book book) {
         Book saved = bookService.saveBook(book);
         return ResponseEntity.status(201).body(saved);
     }
 
-    // Cập nhật sách
     @PutMapping("/{id}")
     public ResponseEntity<Book> updateBook(@PathVariable Long id, @RequestBody Book bookDetails) {
         return bookService.getBookById(id).map(book -> {
@@ -50,7 +46,6 @@ public class BookRestController {
         }).orElse(ResponseEntity.notFound().build());
     }
 
-    // Xóa sách
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteBook(@PathVariable Long id) {
         if (bookService.getBookById(id).isPresent()) {

@@ -14,7 +14,6 @@ public class Book {
     private String author;
     private Double price;
 
-    // Constructors
     public Book() {}
 
     public Book(String title, String author, Double price) {
@@ -23,7 +22,6 @@ public class Book {
         this.price = price;
     }
 
-    // Getters & Setters
     public Long getId() {
         return id;
     }
